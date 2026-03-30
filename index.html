@@ -1,23 +1,671 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <!-- JSON-LD Structured Data for Service Snippets -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "지바겐 리스 및 장기렌트 서비스",
+          "provider": {
+            "@type": "Organization",
+            "name": "지바겐 전문 리스 업체",
+            "url": "https://yourdomain.com",
+            "logo": "https://yourdomain.com/logo.png"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "대한민국"
+          },
+          "description": "2026년형 벤츠 G바겐(G-Class) 리스 및 장기렌트 전문 컨설팅 서비스. G63 AMG, G400d 모델별 비교 견적, 세금 혜택 분석, 초기 비용 최소화 방안을 제공합니다.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "지바겐 리스 상품 가격",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Mercedes-AMG G 63 리스"
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "2500000",
+                  "priceCurrency": "KRW",
+                  "description": "AMG 고성능 모델, 법인 및 개인사업자 리스 전문"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "Mercedes-Benz G 400 d 리스"
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "2000000",
+                  "priceCurrency": "KRW",
+                  "description": "디젤 모델, 효율적인 운용 비용"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "G바겐 장기렌트"
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "2200000",
+                  "priceCurrency": "KRW",
+                  "description": "초기 비용 부담 없는 장기렌트 상품"
+                }
+              }
+            ]
+          },
+          "url": "https://yourdomain.com/g-wagen-lease"
+        }
+        </script>
+
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap">
+        
+        <style>
+            /* Reset and Base Styles */
+            body {
+                font-family: 'Noto Sans KR', sans-serif;
+                margin: 0;
+                padding: 0;
+                line-height: 1.7;
+                background-color: #f7f9fc;
+                color: #333;
+                font-weight: 300;
+            }
+            main {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            h1, h2, h3, h4 {
+                font-family: 'Noto Sans KR', sans-serif;
+                color: #1a1a1a;
+                font-weight: 700;
+                margin-top: 0;
+                line-height: 1.4;
+            }
+            h1 {
+                font-size: 2.8rem;
+                font-weight: 900;
+                letter-spacing: -1.5px;
+                margin-bottom: 1rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+                color: #0e1a2d; /* Deep Blue */
+                border-bottom: 3px solid #0e1a2d;
+                padding-bottom: 10px;
+                margin-bottom: 25px;
+            }
+            h3 {
+                font-size: 1.6rem;
+                color: #0e1a2d;
+                margin-top: 2rem;
+            }
+            a {
+                color: #0e1a2d;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            a:hover {
+                color: #c9a032; /* Gold Accent */
+            }
+            p {
+                font-size: 1.05rem;
+                margin-bottom: 1rem;
+            }
+            section {
+                background-color: #ffffff;
+                padding: 3rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                margin-bottom: 3rem;
+            }
+
+            /* Header Section */
+            header {
+                background: linear-gradient(135deg, #0e1a2d 0%, #2c3e50 100%); /* Deep gradient background */
+                color: #ffffff;
+                padding: 3rem 0;
+                text-align: center;
+                border-bottom: 5px solid #c9a032; /* Gold line accent */
+            }
+            header p {
+                font-size: 1.2rem;
+                font-weight: 300;
+                margin-bottom: 2rem;
+            }
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+            }
+            nav a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 700;
+                padding: 0.8rem 1.5rem;
+                border-radius: 30px;
+                transition: background-color 0.3s ease;
+                font-size: 1.05rem;
+            }
+            nav a:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+
+            /* Hero Image Section */
+            .hero-image {
+                width: 100%;
+                height: 400px;
+                overflow: hidden;
+                position: relative;
+                border-radius: 15px;
+                margin-bottom: 3rem;
+            }
+            .hero-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            .hero-image img:hover {
+                transform: scale(1.05);
+            }
+
+            /* Call to Action */
+            .cta-button {
+                display: inline-block;
+                background-color: #c9a032; /* Gold Accent Color */
+                color: #ffffff;
+                font-weight: 700;
+                padding: 1.2rem 2.8rem;
+                border-radius: 50px;
+                text-decoration: none;
+                margin: 2rem 0;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                text-align: center;
+                box-shadow: 0 6px 15px rgba(201, 160, 50, 0.3);
+            }
+            .cta-button:hover {
+                background-color: #a38029;
+                transform: translateY(-3px);
+            }
+            .centered-cta {
+                text-align: center;
+            }
+
+            /* Keyword Tags */
+            .keyword-tags {
+                margin: 1.5rem 0 2.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .keyword-tags a {
+                background-color: #f0f4f8;
+                color: #4a4a4a;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 0.95rem;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border: 1px solid #e0e0e0;
+            }
+            .keyword-tags a:hover {
+                background-color: #e3f2fd;
+                color: #0e1a2d;
+            }
+
+            /* Pricing Table */
+            .price-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 1.5rem;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            .price-table th, .price-table td {
+                padding: 1.5rem;
+                text-align: left;
+                font-size: 1rem;
+                border-bottom: 1px solid #e9ecef;
+            }
+            .price-table th {
+                background-color: #0e1a2d;
+                color: white;
+                font-weight: 700;
+                text-align: center;
+            }
+            .price-table tr:nth-child(even) {
+                background-color: #fcfcfc;
+            }
+            .price-table td strong {
+                font-weight: 700;
+                color: #c9a032;
+            }
+
+            /* Key Features List */
+            .feature-list {
+                padding-left: 0;
+                list-style: none;
+            }
+            .feature-list li {
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 15px;
+                font-size: 1.05rem;
+            }
+            .feature-list li::before {
+                content: '•'; /* Enhanced bullet point */
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: #c9a032;
+                font-size: 1.5rem;
+                line-height: 1;
+            }
+
+            /* Accordion/FAQ */
+            dl {
+                border-top: 1px solid #e0e0e0;
+                padding-top: 15px;
+            }
+            dt {
+                background-color: #f9f9f9;
+                padding: 15px 20px;
+                margin-top: 10px;
+                border-radius: 8px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                position: relative;
+            }
+            dt:hover {
+                background-color: #f0f0f0;
+            }
+            dd {
+                padding: 15px 20px;
+                border-left: 3px solid #c9a032;
+                margin-left: 10px;
+                background-color: #fff;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-top: 0;
+                display: none;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+            dt.active + dd {
+                display: block;
+            }
+            dt::after {
+                content: '+';
+                position: absolute;
+                right: 20px;
+                font-size: 1.2rem;
+                transition: transform 0.3s ease;
+            }
+            dt.active::after {
+                content: '-';
+                transform: rotate(0deg);
+            }
+
+            /* Comparison Table */
+            .comparison-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 1.5rem;
+            }
+            .comparison-table th, .comparison-table td {
+                border: 1px solid #e0e0e0;
+                padding: 1rem;
+                text-align: center;
+                font-size: 0.95rem;
+            }
+            .comparison-table th {
+                background-color: #e3f2fd;
+                color: #0e1a2d;
+                font-weight: 700;
+            }
+            .comparison-table .highlight {
+                background-color: #fffde7;
+            }
+
+            /* Form Styling */
+            .contact-form {
+                background-color: #f0f4f8;
+                padding: 2.5rem;
+                border-radius: 12px;
+            }
+            .contact-form label {
+                display: block;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                color: #0e1a2d;
+            }
+            .contact-form input[type="text"],
+            .contact-form input[type="tel"],
+            .contact-form input[type="email"],
+            .contact-form select,
+            .contact-form textarea {
+                width: calc(100% - 20px);
+                padding: 12px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                font-size: 1rem;
+            }
+            .contact-form textarea {
+                resize: vertical;
+            }
+            .submit-button {
+                background-color: #0e1a2d;
+                color: white;
+                border: none;
+                width: 100%;
+                padding: 15px;
+                font-size: 1.1rem;
+                font-weight: 700;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .submit-button:hover {
+                background-color: #c9a032;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 3rem 1rem;
+                font-size: 0.9rem;
+                color: #888;
+                background-color: #e9ecef;
+                border-top: 1px solid #ddd;
+                margin-top: 3rem;
+            }
+            footer a {
+                color: #888;
+                font-weight: 400;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                h1 { font-size: 2rem; }
+                h2 { font-size: 1.8rem; }
+                section { padding: 2rem; }
+                nav ul { flex-direction: column; gap: 1rem; }
+                nav a { padding: 0.6rem 1rem; }
+                .hero-image { height: 300px; }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>지바겐 리스 및 장기렌트, 전문가 견적 비교 분석</h1>
+            <p>2026년형 벤츠 G클래스(G-Wagen) 신규 모델 리스 & 장기렌트 최저가 견적, 지금 바로 문의하세요.</p>
+            <nav>
+                <ul>
+                    <li><a href="#overview">서비스 개요</a></li>
+                    <li><a href="#models">모델 비교 분석</a></li>
+                    <li><a href="#comparison">리스 vs. 렌트 vs. 구매</a></li>
+                    <li><a href="#benefits">세금 혜택 및 장점</a></li>
+                    <li><a href="#faq">자주 묻는 질문</a></li>
+                    <li><a href="#contact">견적 문의</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Image Section -->
+            <div class="hero-image" aria-label="메르세데스-벤츠 지바겐 고성능 SUV">
+                <img src="https://images.pexels.com/photos/17260025/pexels-photo-17260025/free-photo-of-mercedes-amg-g-63-suv.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="메르세데스-벤츠 G-Wagen, 럭셔리 SUV">
+            </div>
+
+            <section id="overview">
+                <h2>지바겐 리스, 왜 전문가에게 맡겨야 할까요?</h2>
+                <p><strong>지바겐(G-Wagen)</strong>은 메르세데스-벤츠의 대표적인 럭셔리 SUV로, 독보적인 디자인과 압도적인 성능으로 많은 분들의 드림카로 손꼽힙니다. 하지만 <strong>G-Wagen 리스</strong>나 <strong>장기렌트</strong>는 일반적인 차량 구매와 달리 복잡한 금융 상품입니다. 특히 고가 차량의 특성상 초기 비용, 월 리스료, 만기 시 인수/반납 조건, 그리고 세금 혜택 분석이 매우 중요합니다. 저희는 <strong>지바겐 전문 리스 업체</strong>로서 고객님의 상황에 맞는 최적의 금융 솔루션을 제공하며, <strong>지바겐 가격</strong> 및 <strong>G63 AMG 견적</strong>을 투명하게 비교 분석해 드립니다.</p>
+
+                <div class="keyword-tags" aria-label="지바겐 리스 관련 키워드">
+                    <a href="#comparison">지바겐 리스 장점</a>
+                    <a href="#models">G63 AMG 리스 가격</a>
+                    <a href="#comparison">지바겐 장기렌트 비교</a>
+                    <a href="#contact">지바겐 견적 문의</a>
+                    <a href="#models">G400d 리스 비용</a>
+                    <a href="#benefits">법인 리스 세금 혜택</a>
+                    <a href="#faq">내돈내산 후기</a>
+                    <a href="#comparison">지바겐 리스 단점</a>
+                    <a href="#contact">지바겐 저렴한곳</a>
+                </div>
+                
+                <h3>2026년형 지바겐 리스 시장 동향</h3>
+                <p>2026년은 G-Wagen 풀체인지 주기가 예상되거나 새로운 전기차 버전 EQG의 출시가 가시화될 수 있는 시점입니다. 이에 따라 기존 모델의 <strong>재고 할인</strong> 및 <strong>프로모션</strong>이 활발해질 것으로 전망됩니다. 리스는 차량 가격 변동 위험을 줄이고 신규 모델로의 전환이 용이하다는 장점이 있습니다. 특히 <strong>신규 가입 혜택</strong>과 <strong>현금지원</strong> 프로모션은 시기에 따라 크게 달라지므로, 전문가의 조언을 통해 최적의 타이밍을 잡는 것이 중요합니다.</p>
+            </section>
+
+            <section id="models">
+                <h2>주요 지바겐 모델별 리스 견적 분석 (G63 AMG vs. G400d)</h2>
+                <p><strong>메르세데스-벤츠 G클래스</strong>는 고성능 AMG 모델과 효율성을 강조한 디젤 모델로 나뉩니다. 두 모델은 운용 목적과 월 비용에 큰 차이가 있으므로, 신중한 선택이 필요합니다. 저희는 각 모델의 제원과 시장 평균 <strong>리스 비용</strong>을 분석하여 고객 맞춤형 <strong>지바겐 견적</strong>을 제공합니다.</p>
+
+                <h3>1. 메르세데스-AMG G 63 (고성능 럭셔리)</h3>
+                <ul class="feature-list">
+                    <li><strong>엔진/성능:</strong> V8 트윈터보 엔진 (배기량 3,982cc), 최고 출력 585마력, 제로백 4.5초 이내.</li>
+                    <li><strong>주요 타겟:</strong> 압도적인 퍼포먼스와 강력한 브랜드 이미지를 선호하는 고객, 법인 대표이사 및 전문직 종사자.</li>
+                    <li><strong>리스 특징:</strong> 높은 차량 가격으로 인해 월 리스료가 높습니다. <strong>법인 사업자</strong>의 경우 세무 처리를 통한 <strong>세금 절감 효과</strong>가 극대화될 수 있습니다. <strong>신차 출고 대기</strong>가 긴 편이므로 사전 예약을 통해 <strong>즉시 출고</strong> 가능한 매물을 확보하는 것이 관건입니다.</li>
+                    <li><strong>평균 리스 비용 (예시):</strong> 선수금 30%, 48개월 기준 <strong>월 250만원 ~ 350만원</strong> (차량 옵션, 금리, 시기별 할인 적용 여부에 따라 상이).</li>
+                </ul>
+
+                <h3>2. 메르세데스-벤츠 G 400 d (효율성 및 실용성)</h3>
+                <ul class="feature-list">
+                    <li><strong>엔진/성능:</strong> 직렬 6기통 디젤 엔진 (배기량 2,925cc), 최고 출력 330마력.</li>
+                    <li><strong>주요 타겟:</strong> G-Wagen의 디자인과 실용성을 동시에 원하는 고객, 고성능보다 운용 비용 효율성을 중시하는 고객.</li>
+                    <li><strong>리스 특징:</strong> G63 대비 낮은 차량가로 월 납입금이 합리적이며, 디젤 연료 효율성으로 운행 비용 부담이 적습니다. <strong>저렴한곳</strong>을 찾는 개인 사업자에게 훌륭한 대안이 될 수 있습니다.</li>
+                    <li><strong>평균 리스 비용 (예시):</strong> 선수금 30%, 48개월 기준 <strong>월 200만원 ~ 280만원</strong> (차량 옵션, 금리, 시기별 할인 적용 여부에 따라 상이).</li>
+                </ul>
+                <p><strong>G바겐 리스</strong>는 단순히 차량을 이용하는 것을 넘어, 자산 관리의 한 형태입니다. 저희는 고객님의 <strong>평균적인 운행 거리</strong>와 <strong>사업자 형태</strong>를 고려하여 <strong>내돈내산</strong>과 같은 후회 없는 선택을 돕겠습니다.</p>
+            </section>
+
+            <section id="comparison">
+                <h2>지바겐 리스 vs. 장기렌트 vs. 할부 구매 장단점 비교</h2>
+                <p>지바겐과 같은 고가 차량은 운용 방식에 따라 총 지출 비용이 크게 달라집니다. 특히 <strong>법인 리스</strong>나 <strong>개인 사업자 리스</strong>의 경우 세금 혜택을 고려하면 리스가 압도적으로 유리합니다. 아래 표를 통해 <strong>지바겐 리스 장단점</strong>을 명확히 비교해 보세요.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>지바겐 리스 (운용리스)</th>
+                            <th>지바겐 장기렌트</th>
+                            <th>지바겐 할부 구매</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>소유권</strong></td>
+                            <td class="highlight">리스사 명의 (만기 후 선택 가능)</td>
+                            <td>렌트사 명의</td>
+                            <td>개인 또는 법인 명의</td>
+                        </tr>
+                        <tr>
+                            <td><strong>초기 비용</strong></td>
+                            <td class="highlight">보증금/선수금 필요 (보증금은 반환)</td>
+                            <td>보증금 선택 가능 (무보증도 가능)</td>
+                            <td>선수금 및 취등록세 발생</td>
+                        </tr>
+                        <tr>
+                            <td><strong>세금 혜택</strong></td>
+                            <td class="highlight">월 리스료 전액 비용처리 가능 (연간 1천만원 한도)</td>
+                            <td class="highlight">월 렌트료 전액 비용처리 가능 (연간 1천만원 한도)</td>
+                            <td>감가상각비, 유류비 등 일부 비용처리 가능</td>
+                        </tr>
+                        <tr>
+                            <td><strong>보험료</strong></td>
+                            <td>개인 명의 보험 가입 (경력 인정)</td>
+                            <td>렌트사 보험 (보험료 별도)</td>
+                            <td>개인 명의 보험 가입</td>
+                        </tr>
+                        <tr>
+                            <td><strong>번호판</strong></td>
+                            <td>일반 승용차 번호판 (하, 허, 호X)</td>
+                            <td>렌트용 번호판 (하, 허, 호)</td>
+                            <td>일반 승용차 번호판</td>
+                        </tr>
+                        <tr>
+                            <td><strong>만기 처리</strong></td>
+                            <td class="highlight">인수, 반납, 재리스 선택 가능</td>
+                            <td>인수, 반납 선택 가능</td>
+                            <td>만기 시 차량 소유</td>
+                        </tr>
+                        <tr>
+                            <td><strong>장점 요약</strong></td>
+                            <td class="highlight">세금 절감 효과 우수, 일반 번호판 사용, 만기 시 유연한 선택 가능.</td>
+                            <td>초기 비용 부담 최소화, 보험료 할증 없음, 사고 시 면책금만 납부.</td>
+                            <td>자산 가치 증대, 주행 거리 제한 없음.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>지바겐 장기렌트</strong>는 초기 비용 부담을 최소화하고 보험 경력 단절에 신경 쓰지 않아도 된다는 장점이 있습니다. 반면 <strong>지바겐 리스</strong>는 일반 번호판을 사용하며, 개인 보험 경력을 유지할 수 있어 고가 차량 이미지 관리에 더 유리하다는 평가를 받습니다.</p>
+                <p><strong>디시(DC)</strong>나 <strong>네이버 카페</strong> 등에서 <strong>지바겐 내돈내산 후기</strong>를 보면 리스 또는 장기렌트를 이용하는 경우가 많습니다. 특히 <strong>법인 사업자</strong>의 경우 <strong>리스가입</strong> 시 월 리스료 전액을 손비 처리하여 법인세 또는 소득세 절감 효과를 볼 수 있습니다.</p>
+            </section>
+
+            <section id="benefits">
+                <h2>세금 혜택 상세 분석 및 리스 이용 장점</h2>
+                <p>지바겐과 같은 고가 차량 운용 시 <strong>세금 혜택</strong>은 무시할 수 없는 부분입니다. 특히 <strong>개인사업자</strong>나 <strong>법인</strong>의 경우 리스를 통해 차량 유지 비용을 획기적으로 줄일 수 있습니다.</p>
+
+                <h3>1. 사업자 세금 절감 효과 (연간 1천만원 비용처리)</h3>
+                <p>사업자가 업무용 승용차를 리스하는 경우, 리스료에 포함된 감가상각비, 보험료, 자동차세, 수리유지비 등 모든 비용을 합쳐 연간 1천만원까지 비용으로 인정받아 세금을 절감할 수 있습니다. 지바겐은 차량 가격이 높기 때문에 1천만원 비용처리 한도를 최대한 활용할 수 있어, <strong>절세 효과</strong>가 가장 큰 차량 중 하나입니다. 또한, 부가세 환급은 안되지만 월 리스료에 포함된 보험료와 자동차세 등은 손비 처리가 가능합니다.</p>
+
+                <h3>2. 금융 및 심리적 장점</h3>
+                <ul class="feature-list">
+                    <li><strong>초기 비용 부담 최소화:</strong> 지바겐 리스는 할부 구매와 달리 차량가 전액을 부담하지 않고, 보증금(만기 시 반환) 또는 선수금(월 납입료 할인)을 통해 초기 비용을 낮출 수 있습니다. 무보증 리스 상품도 가능하여 초기 자금 유동성을 확보하는 데 유리합니다.</li>
+                    <li><strong>자산 관리의 편리성:</strong> 리스 차량은 고객의 재산으로 잡히지 않아 의료보험료 및 국민연금 등 4대 보험료 상승을 피할 수 있습니다. 이는 고가 차량을 보유하려는 자산가에게 매우 중요한 장점입니다.</li>
+                    <li><strong>신차 교체의 유연성:</strong> 만기 시점에 차량을 반납하고 새로운 모델로 교체하기 쉽습니다. 특히 <strong>2026년</strong> 이후 신규 모델 출시나 시장 변화에 따라 차량 가치가 급락할 위험이 있을 때, 리스는 이러한 위험을 리스사에 전가할 수 있습니다.</li>
+                    <li><strong>G-Wagen 전문 업체 추천:</strong> 저희는 <strong>지바겐 전문 업체</strong>로서 차량 관리부터 사고 처리까지 원스톱 서비스를 제공하여 고객님의 편의성을 높입니다.</li>
+                </ul>
+            </section>
+
+            <section id="faq">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <p><strong>네이버 지식iN</strong>에서 <strong>'지바겐 리스'</strong>를 검색하는 분들이 가장 많이 궁금해하는 질문들을 모았습니다.</p>
+                <dl>
+                    <dt tabindex="0" aria-expanded="false" class="accordion-trigger">1. 지바겐 리스 견적은 왜 업체마다 다른가요?</dt>
+                    <dd class="accordion-content">지바겐 리스 견적은 차량 가격뿐만 아니라 리스사별 금리, 차량 출고 시 프로모션 할인율, 보증금/선수금 조건, 잔존가치 설정 등에 따라 달라집니다. 특히 <strong>G63 AMG</strong>와 같은 고가 차량은 <strong>할인율</strong> 적용에 따라 최종 <strong>월 리스료</strong>가 수십만원씩 차이 날 수 있습니다. 저희는 여러 리스사의 조건을 비교하여 <strong>가장 저렴한곳</strong>을 찾아드립니다.</dd>
+                    <dt tabindex="0" aria-expanded="false" class="accordion-trigger">2. 지바겐 리스 심사 조건은 까다로운가요?</dt>
+                    <dd class="accordion-content">지바겐은 고가 차량이므로 심사 기준이 일반 차량보다 엄격합니다. <strong>신규 사업자</strong>의 경우 심사가 어려울 수 있습니다. 하지만 저희는 <strong>지바겐 전문</strong> 컨설턴트가 고객님의 신용 등급, 소득 증빙 자료(재산세 납입 증명 등), 사업 규모 등을 분석하여 승인율을 높일 수 있는 최적의 방안을 제시해 드립니다. <strong>신용 점수</strong>가 낮은 경우 보증금 비율을 높여 승인을 유도할 수 있습니다.</dd>
+                    <dt tabindex="0" aria-expanded="false" class="accordion-trigger">3. 리스 만기 시 차량 인수를 할 경우 비용이 얼마나 드나요?</dt>
+                    <dd class="accordion-content">차량 인수 시에는 만기 시점의 차량 잔존가치 금액을 납부해야 합니다. <strong>G-Wagen</strong>은 감가율이 낮은 편이라 잔존가치가 높게 책정될 수 있습니다. 만약 차량을 인수할 계획이라면 초기 <strong>잔존가치</strong>를 낮게 설정하고 월 납입금을 높이거나, 반대로 잔존가치를 높게 설정하여 월 납입금을 낮추는 방법이 있습니다. 고객의 만기 계획에 따라 유연하게 조정이 가능합니다.</dd>
+                    <dt tabindex="0" aria-expanded="false" class="accordion-trigger">4. 2026년 이후 G바겐 풀체인지 모델이 나온다면 리스 계약에 영향이 있나요?</dt>
+                    <dd class="accordion-content">만약 <strong>2026년</strong>에 <strong>G바겐 풀체인지</strong> 모델이 출시된다면 기존 모델의 중고차 가치가 일시적으로 하락할 수 있습니다. 리스는 이러한 중고차 가치 하락의 위험을 리스사가 부담하므로, 고객님은 안심하고 신차를 이용할 수 있습니다. 만기 시점에 신형 모델로 교체할 계획이라면 리스가 가장 합리적인 선택이 됩니다.</dd>
+                    <dt tabindex="0" aria-expanded="false" class="accordion-trigger">5. 개인사업자 리스 시 <strong>현금지원</strong>이나 <strong>상품권 혜택</strong>을 받을 수 있나요?</dt>
+                    <dd class="accordion-content">업체마다 <strong>지바겐 리스 프로모션</strong>이 다르게 적용됩니다. 저희는 고객의 <strong>신규 가입</strong> 여부, <strong>지바겐 즉시 출고</strong> 조건 등에 따라 <strong>현금지원</strong>, <strong>상품권 증정</strong>, <strong>사은품 제공</strong> 등의 혜택을 제공합니다. 이는 <strong>네이버</strong>, <strong>구글</strong> 등 포털 사이트 검색 결과에 노출되지 않는 비공개 혜택인 경우가 많습니다. 상담 시 문의해 주시면 최신 프로모션을 안내해 드립니다.</dd>
+                </dl>
+            </section>
+
+            <section class="external-links">
+                <h2>신뢰할 수 있는 외부 정보 참고 자료</h2>
+                <p><strong>지바겐 리스</strong> 계약 전, 공신력 있는 기관의 자료를 통해 관련 법규 및 정보를 확인해 보세요.</p>
+                <ul>
+                    <li><a href="https://www.ftc.go.kr/www/cpw/service/selectBusi.do?key=670&busiType=08" target="_blank">공정거래위원회 - 자동차 대여 표준약관</a></li>
+                    <li><a href="https://www.molit.go.kr/" target="_blank">국토교통부 - 자동차 관련 법규 및 정책</a></li>
+                    <li><a href="https://namu.wiki/w/%EB%A6%AC%EC%8A%A4" target="_blank">나무위키 - 금융 리스 및 운용 리스 개념</a></li>
+                    <li><a href="https://www.mercedes-benz.co.kr/" target="_blank">메르세데스-벤츠 코리아 공식 웹사이트</a></li>
+                    <li><a href="https://yourdomain.com/blog/g-class-review" target="_blank">우리 업체 블로그 - G바겐 G63 AMG 내돈내산 시승 후기</a></li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2>지바겐 리스 견적 문의 및 상담 신청</h2>
+                <p><strong>지바겐 견적</strong>은 차량 모델, 옵션, 계약 기간, 초기 비용 조건에 따라 <strong>평균적인 금액</strong>이 크게 달라집니다. 정확한 <strong>예상 비용</strong>을 확인하려면 전문가와의 상담이 필수입니다. 아래 양식을 작성해 주시면 <strong>2026년형</strong> 모델의 최신 <strong>할인</strong> 및 <strong>혜택</strong>을 적용한 맞춤 견적을 제공해 드립니다. <strong>G바겐 리스 싼곳</strong>을 찾는다면 지금 바로 문의하세요.</p>
+                <form class="contact-form" action="submit_contact_form.php" method="POST">
+                    <label for="name">이름:</label>
+                    <input type="text" id="name" name="name" placeholder="이름을 입력해 주세요" required>
+
+                    <label for="tel">연락처:</label>
+                    <input type="tel" id="tel" name="tel" placeholder="010-xxxx-xxxx" required>
+
+                    <label for="model">희망 모델:</label>
+                    <select id="model" name="model" required>
+                        <option value="">모델 선택</option>
+                        <option value="G63 AMG">Mercedes-AMG G 63</option>
+                        <option value="G400 d">Mercedes-Benz G 400 d</option>
+                        <option value="EQG (전기차)">Mercedes-Benz EQG (예정)</option>
+                        <option value="Other">기타 모델 문의</option>
+                    </select>
+
+                    <label for="term">희망 계약 기간 (개월):</label>
+                    <select id="term" name="term" required>
+                        <option value="">기간 선택</option>
+                        <option value="36">36개월</option>
+                        <option value="48">48개월</option>
+                        <option value="60">60개월</option>
+                    </select>
+
+                    <label for="initial_cost_type">희망 초기 비용 조건:</label>
+                    <select id="initial_cost_type" name="initial_cost_type" required>
+                        <option value="">초기 비용 조건 선택</option>
+                        <option value="Deposit">보증금 (만기 환급)</option>
+                        <option value="Advance">선수금 (월 납입료 할인)</option>
+                        <option value="NoInitial">무보증 (초기 비용 0)</option>
+                    </select>
+
+                    <label for="message">추가 문의사항 (예: 사업자 여부, 원하는 옵션 등):</label>
+                    <textarea id="message" name="message" rows="4" placeholder="자세한 내용을 남겨주시면 정확한 상담에 도움이 됩니다."></textarea>
+
+                    <button type="submit" class="submit-button">견적 문의 신청하기</button>
+                </form>
+            </section>
+
+            <!-- Content Expansion for 20,000 characters: Detailed Model Specs and Financial Analysis -->
+            <section id="detailed-analysis">
+                <h3>지바겐 G63 AMG vs. G400d 심층 비교: 제원 및 운용 비용 분석</h3>
+                <p><strong>메르세데스-벤츠 G클래스</strong>, 일명 <strong>지바겐</strong>은 1979년 첫 출시 이후 40년 이상 동안 특유의 강인한 디자인과 뛰어난 오프로드 성능으로 명성을 유지해 왔습니다. 현행 모델은 <strong>W463</strong> 코드명을 가지고 있으며, <strong>G63 AMG</strong>와 <strong>G400d</strong> 모델이 국내에서 주로 판매됩니다. 이 두 모델은 성격이 완전히 다르므로, <strong>리스 비용</strong>과 <strong>장단점</strong>을 면밀히 비교하여 고객님의 라이프스타일에 맞는 선택을 해야 합니다.</p>
+
+                <h4>1. 퍼포먼스 비교 (G63 AMG vs. G400d)</h4>
+                <p><strong>G63 AMG</strong>는 벤츠의 고성능 부서인 AMG가 튜닝한 모델로, <strong>V8 트윈터보 엔진</strong>을 탑재해 585마력의 괴물 같은 출력을 자랑합니다. 제로백은 4.5초에 불과하며, <strong>AMG 퍼포먼스 배기 시스템</strong>에서 나오는 우렁찬 배기음은 이 차량의 상징과도 같습니다. 반면 <strong>G400d</strong>는 <strong>직렬 6기통 디젤 엔진</strong>을 탑재하여 330마력의 출력을 내지만, G63 대비 <strong>연료 효율</strong>이 월등히 좋습니다. 복합 연비가 8.5km/l 내외로 G63 (5.6km/l 내외)보다 훨씬 높습니다. 즉, 잦은 주행이나 장거리 운행이 많은 고객에게는 <strong>G400d 리스</strong>가 합리적인 선택이 됩니다.</p>
+
+                <h4>2. 디자인 및 옵션 차이</h4>
+                <p>두 모델 모두 <strong>G-Class</strong> 고유의 각진 외관을 공유하지만, <strong>G63 AMG</strong>는 <strong>AMG 바디 스타일링</strong>, <strong>파나메리카나 그릴</strong>, <strong>레드 캘리퍼</strong> 등 고성능 모델의 상징적인 디테일이 추가됩니다. 실내에서도 <strong>AMG 전용 스티어링 휠</strong>, 카본 트림, 고급 나파 가죽 시트 등 럭셔리한 옵션이 기본 적용됩니다. <strong>G400d</strong>는 상대적으로 차분한 디자인을 가지며, 옵션 선택에 따라 인테리어가 달라집니다. <strong>G-Wagen 리스 견적</strong>을 비교할 때, 차량 가격 차이가 발생하는 주요 원인 중 하나가 이러한 옵션 구성의 차이입니다.</p>
+
+                <h4>3. 리스 비용 산정 시 고려 사항</h4>
+                <p><strong>지바겐 리스 가격</strong>은 초기 차량 가격에 기반하지만, <strong>잔존가치</strong> 설정이 핵심 변수입니다. <strong>G-Wagen</strong>은 국내 시장에서 워낙 인기가 많고 중고차 가격 방어가 잘 되는 차량이므로, 리스사들이 잔존가치를 높게 설정하는 경향이 있습니다. 잔존가치가 높으면 월 리스료가 낮아져 당장의 부담은 줄어들지만, 만기 시 인수 비용이 높아집니다. <strong>G63 AMG</strong>는 <strong>G400d</strong>보다 차량 가격이 높기 때문에 월 리스료도 높지만, <strong>잔존가치</strong> 또한 높게 유지되는 경향이 있습니다.</p>
+
+                <h4>4. 운용 비용 및 유지보수</h4>
+                <p><strong>G63 AMG</strong>는 V8 엔진 특성상 <strong>정비 비용</strong>과 <strong>소모품 교환 비용</strong>이 <strong>G400d</strong> 대비 높습니다. <strong>타이어 교체 비용</strong>이나 <strong>엔진 오일 교환 비용</strong> 등에서도 차이가 발생하므로, 총 운용 비용을 고려한 <strong>리스 견적</strong>을 받아보는 것이 중요합니다. <strong>리스 상품</strong>에는 보통 정비 프로그램이 포함되어 있어 <strong>유지보수 비용</strong> 부담을 줄일 수 있습니다.</p>
+
+                <h4>5. 리스 진행 절차 및 필요 서류</h4>
+                <p><strong>지바겐 리스</strong> 계약 절차는 다음과 같습니다. 1) 견적 상담: 희망 모델, 계약 기간, 초기 비용 조건 등 결정. 2) 심사 서류 접수: <strong>개인사업자</strong>의 경우 사업자등록증, 부가세 증명원, 소득 금액 증명원 등. <strong>법인 사업자</strong>의 경우 법인사업자등록증, 재무제표, 주주명부 등. 3) 심사 승인: 리스사에서 고객 신용도 및 재무 상태 확인. 4) 계약 및 차량 출고: 계약서 작성 및 차량 출고. <strong>즉시 출고</strong> 가능한 매물이 있는 경우 며칠 내로 차량 인도가 가능합니다. <strong>2026년</strong> 기준으로 예상되는 <strong>신차 출고 대기</strong> 기간을 미리 확인하는 것이 좋습니다.</p>
+            </section>
+        </main>
+
+        <script>
+            // FAQ 아코디언 기능 (접기/펼치기)
+            document.querySelectorAll('dl dt').forEach((dt) => {
+                dt.addEventListener('click', () => {
+                    const isActive = dt.classList.contains('active');
+                    // Collapse all other items
+                    document.querySelectorAll('dl dt').forEach(item => {
+                        item.classList.remove('active');
+                        item.setAttribute('aria-expanded', 'false');
+                    });
+                    // Toggle current item
+                    if (!isActive) {
+                        dt.classList.add('active');
+                        dt.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                dt.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        dt.click();
+                    }
+                });
+            });
+        </script>
+      
